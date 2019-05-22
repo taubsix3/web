@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       {{template "head"}}
+    </head>
+    <body>
+               {{template "navbar"}}
+
+        {{template "sidemenu"}}
+
+        <div class="column" id="content">
+            <div class="columns2">
+                <div class="columns2">
+                    <br>
+                    <br>
+                    <p class="text" style="font-size:70px; margin-left: -4.6em; margin-top:-1em;"><strong class="text" id="ueberschrift">Kartei erstellen/ Kartei bearbeiten</strong></p>
+
+                    <p class="subtitle is-6"style="margin-left: -18em;">Hier kannst du eine Kartei erstellen oder eine vorhandene nach Bedarff bearbeiten.</p>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-9">
+                    <div class="box" style="margin-top: 3em;">
+                        <h1 class="text left bold-text" style="font-size: 28px;">Allgemeine Daten</h1>
+                        <div class="columns" style="margin-top: 20px; margin-left:-10px;">
+                            <div class="column is-3 box-item" style="text-align: right;">
+                                Titel
+                            </div>
+                            <div class="column is-6">
+                                <div class="box-item">
+                                    <input class="input is-hovered is-normal inputbackground" type="text" style="size:50px; color: black;">
+                                </div>
+                            </div>
+                            <div class="column is-4" style="font-size: 18px;">
+                            </div>
+                        </div>
+                        <div class="columns" style="margin-top: -20px; margin-left:-10px;">
+                            <div class="column is-3 box-item" style="text-align: right;">
+                                Kategorie
+                            </div>
+
+
+                            <div class="column is-5">
+                                <div class="select" style="margin-left: -18.8em;">
+                                    <select id="kategorie">
+                                        <optgroup label="Naturwissenschaften">
+                                            <option>
+                                                Biologie
+                                            </option>
+                                            <option>
+                                                Chemie
+                                            </option>
+                                            <option>
+                                                Elektotechnik
+                                            </option>
+                                            <option>
+                                                Informatik
+                                            </option>
+                                            <option>
+                                                Mathematik
+                                            </option>
+                                            <option>
+                                                Medizin
+                                            </option>
+                                            <option>
+                                                Naturkunde
+                                            </option>
+                                            <option>
+                                                Physik
+                                            </option>
+                                            <option>
+                                                Sonstiges
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="Sprachen">
+                                            <option>
+                                                Chinesisch
+                                            </option>
+                                            <option>
+                                                Deutsch
+                                            </option>
+                                            <option>
+                                                Englisch
+                                            </option>
+                                            <option>
+                                                Französisch
+                                            </option>
+                                            <option>
+                                                Griechisch
+                                            </option>
+                                            <option>
+                                                Italienisch
+                                            </option>
+                                            <option>
+                                                Latein
+                                            </option>
+                                            <option>
+                                                Russisch
+                                            </option>
+                                            <option>
+                                                Sonstiges
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="Gesellschaft">
+                                            <option>
+                                                Ethik
+                                            </option>
+                                            <option>
+                                                Geschichte
+                                            </option>
+                                            <option>
+                                                Literatur
+                                            </option>
+                                            <option>
+                                                Musik
+                                            </option>
+                                            <option>
+                                                Politik
+                                            </option>
+                                            <option>
+                                                Recht
+                                            </option>
+                                            <option>
+                                                Soziales
+                                            </option>
+                                            <option>
+                                                Sport
+                                            </option>
+                                            <option>
+                                                Verkehrskunde
+                                            </option>
+                                            <option>
+                                                Sonstiges
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="Wirtschaft">
+                                            <option>
+                                                BWL
+                                            </option>
+                                            <option>
+                                                Finanzen
+                                            </option>
+                                            <option>
+                                                Landwirtschaft
+                                            </option>
+                                            <option>
+                                                Marketing
+                                            </option>
+                                            <option>
+                                                VWL
+                                            </option>
+                                            <option>
+                                                Sonstiges
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label="Wirtschaft">
+                                            <option>
+                                                Kriminologie
+                                            </option>
+                                            <option>
+                                                Philosophie
+                                            </option>
+                                            <option>
+                                                Psychologie
+                                            </option>
+                                            <option>
+                                                Pädagogik
+                                            </option>
+                                            <option>
+                                                Theologie
+                                            </option>
+                                            <option>
+                                                Sonstiges
+                                            </option>
+                                        </optgroup>
+                                    </select>
+
+                                </div>                               
+
+                            </div>
+                            <div class="column is-4 arrow_box white-text" style="font-size: 18px;">
+                                <p style="margin-top: -10px;">Pflichtfeld!</p>
+                            </div>
+                        </div>
+                        <div class="columns" style=" margin-top: -20px; margin-left:-10px;">
+                            <div class="column is-3 box-item" style="text-align: right;">
+                                Beschreibung
+                            </div>
+                            <div class="column is-5">
+                                <div class="box-item">
+                                    <input class="input is-hovered is-normal inputbackground" id="bearbeiten" type="text"
+                                           style="size:50px;">
+                                </div>
+                            </div>
+                            <div class="column is-4">
+
+                            </div>
+                        </div>
+                        <div class="columns" style="margin-top: -20px; margin-left:-10px;">
+                            <div class="column is-3 box-item" style="text-align: right;">
+                                Sichtbarkeit
+                            </div>
+                            <div class="column is-3">
+                                <div class="control-group">
+                                    <div class=columns>
+                                        <div class=column id="radiobuttons">
+                                            <label class="control control-radio">
+                                                Öffentlich
+                                                <input type="radio" name="radio" checked="checked" />
+                                                <div class="control_indicator"></div>
+                                            </label>
+                                        </div>
+                                        <div class=column id="radiobuttons">
+                                            <label class="control control-radio">
+                                                Privat
+                                                <input type="radio" name="radio" />
+                                                <div class="control_indicator"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column is-4" style="font-size: 18px;">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns" style="margin-top: -20px; margin-left:-250px;">
+                            <div class="column box-item" style="text-align: right;">
+                            </div>
+                            <div class="column">
+                                <div class="box-item">
+                                    <a href="karteikasten"><button class="button button-yellow white-text bold-text" style=" width:200px; "
+                                                                        type="submit"> Speichern und weiter </button></a>
+                                </div>
+                            </div>
+                            <div class="column">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

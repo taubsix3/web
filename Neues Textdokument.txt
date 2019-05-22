@@ -1,0 +1,139 @@
+    package model
+
+    import (
+    	"errors"
+    	"fmt"
+
+    	couchdb "github.com/leesper/couchdb-golang"
+    )
+
+    type Progress struct {
+    	Id        string         `json:"_id"`
+    	Rev       string         `json:"_rev"`
+    	CardBoxId string         `json:"card_box_id"`
+    	UserId    string         `json:"user_id"`
+    	Progress  []CardProgress `json:"progress"`
+    	couchdb.Document
+    }
+
+    type CardProgress struct {
+    	CardId string `json:"card_id"`
+    	Phase  int    `json:"phase"`
+    }
+
+    // CreateUser in DB
+    func (p *Progress) CreateProgress() error {
+    	// Convert Todo struct to map[string]interface as required by Save() method
+    	progress := doMagic(p)
+    	progress["type"] = "progress"
+    	delete(progress, "_id")
+    	delete(progress, "_rev")
+    	// Add todo to DB
+    	id, rev, err := btDB.Save(progress, nil)
+
+    	p.Id = id
+    	p.Rev = rev
+
+    	if err != nil {
+    		fmt.Printf("[Progress][Add] error: %s", err)
+    	}
+
+    	return err
+    }
+
+    // ReadUser with the provided id from DB
+    func ReadProgress(id string) (Progress, error) {
+    	t, err := btDB.Get(id, nil)
+    	if err != nil {
+    		return Progress{}, err
+    	}
+
+    	if t["_id"].(string) == "progress" {
+    		return Progress{}, errors.New("Wrong Type")
+    	}
+
+    	return fillProgress(t), nil
+    }
+
+    // UpdateUser in DB
+    func (t User) UpdateProgress() error {
+    	progress := doMagic(t)
+    	progress["type"] = "progress"
+    	err := btDB.Set(t.Id, progress)
+
+    	if err != nil {
+    		fmt.Printf("[Progress][Update] error: %s", err)
+    	}
+
+    	return err
+    }
+
+    // DeleteUser
+    func (t Progress) DeleteProgress() error {
+    	err := btDB.Delete(t.Id)
+
+    	return err
+    }
+
+    func GetProgressPercent(user string, card_box string) int {
+    	p, err := btDB.QueryJSON(`
+    	{
+    		"selector": {
+    			 "type": {
+    					"$eq": "progress"
+    			 },
+    			 "card_box_id": {
+    				 "$eq": ` + card_box + `
+    			 },
+    			 "user_id": {
+    				 "$eq": ` + user + `
+    			 }
+    		}
+    	 }`)
+    	if err != nil || len(p) < 1 {
+    		return 0
+    	}
+
+    	progress := fillProgress(p[0])
+    	score := 0
+
+    	for _, v := range progress.Progress {
+    		score += v.Phase
+    	}
+
+    	card_count := CountCardsByBox(card_box)
+
+    	if card_count <= 0 {
+    		return 100
+    	}
+
+    	return (100 * score) / (card_count * 4)
+    }
+
+    func fillProgress(t map[string]interface{}) Progress {
+    	card_progress := []CardProgress{}
+
+    	for _, val := range doMagic(t["progress"]) {
+    		cp := doMagic(val)
+
+    		card_progress = append(card_progress, fillCardProgress(cp))
+    	}
+
+    	progress := Progress{
+    		Id:        t["_id"].(string),
+    		Rev:       t["_rev"].(string),
+    		CardBoxId: t["card_box_id"].(string),
+    		UserId:    t["user_id"].(string),
+    		Progress:  t["progress"].([]CardProgress),
+    	}
+
+    	return progress
+    }
+
+    func fillCardProgress(cp map[string]interface{}) CardProgress {
+    	card_progress := CardProgress{
+    		CardId: cp["card_id"].(string),
+    		Phase:  int(cp["card_id"].(float64)),
+    	}
+    	return card_progress
+    }

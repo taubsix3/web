@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       {{template "head"}}
+    </head>
+    <body>
+              {{template "navbarUL"}}
+              {{template "sidemenuUL"}}
+
+        <div class="columns">
+            <div class="column is-9">
+                <div class="box">
+                    <br>
+                    <br>
+
+                    <h1 class="title"><strong>Willkommen bei <span id= "darkGreen-text">Brain<span id="lightGreen-text">Train</span></span></strong></h1>
+                    {{range .}}
+                    Hier haben sich <strong>{{.name}}</strong> angemeldet und zusammen <strong>124 Lernkarten</strong> in <strong> 22 Karteien</strong> erstellt.
+                    {{else}}
+                    <h2> ups</h2>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

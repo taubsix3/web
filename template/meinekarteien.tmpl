@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{template "head"}}
+
+</head>
+<body>
+  {{template "navbar"}}
+
+  {{template "sidemenu"}}
+
+  <div class="column" id="content">
+    <div class="columnns">
+      <div class="columns2">
+        <br>
+        <br>
+        <p class="text" style="font-size:70px; margin-left: -0.2em; margin-top:-1em;"><strong class="text" id="ueberschrift">Meine Karteien</strong></p>
+
+        <p class="subtitle is-6"style="margin-left: 1.4em;">Hier findest du deine Karteien, sowie öffentliche Karteien, die du angefangen hast zu lernen.</p>
+      </div>
+      <div class="column">
+        <div class="is-pulled-right field is-grouped" >
+          <p class="control">
+            <div class="select" style="margin-top:-2em;">
+              <select id="select">
+                <option>Sortieren nach...</option>
+                <optgroup label="Naturwissenschaften">
+                  <option>
+                    Biologie
+                  </option>
+                  <option>
+                    Chemie
+                  </option>
+                  <option>
+                    Elektotechnik
+                  </option>
+                  <option>
+                    Informatik
+                  </option>
+                  <option>
+                    Mathematik
+                  </option>
+                  <option>
+                    Medizin
+                  </option>
+                  <option>
+                    Naturkunde
+                  </option>
+                  <option>
+                    Physik
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+                <optgroup label="Sprachen">
+                  <option>
+                    Chinesisch
+                  </option>
+                  <option>
+                    Deutsch
+                  </option>
+                  <option>
+                    Englisch
+                  </option>
+                  <option>
+                    Französisch
+                  </option>
+                  <option>
+                    Griechisch
+                  </option>
+                  <option>
+                    Italienisch
+                  </option>
+                  <option>
+                    Latein
+                  </option>
+                  <option>
+                    Russisch
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+                <optgroup label="Gesellschaft">
+                  <option>
+                    Ethik
+                  </option>
+                  <option>
+                    Geschichte
+                  </option>
+                  <option>
+                    Literatur
+                  </option>
+                  <option>
+                    Musik
+                  </option>
+                  <option>
+                    Politik
+                  </option>
+                  <option>
+                    Recht
+                  </option>
+                  <option>
+                    Soziales
+                  </option>
+                  <option>
+                    Sport
+                  </option>
+                  <option>
+                    Verkehrskunde
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+                <optgroup label="Wirtschaft">
+                  <option>
+                    BWL
+                  </option>
+                  <option>
+                    Finanzen
+                  </option>
+                  <option>
+                    Landwirtschaft
+                  </option>
+                  <option>
+                    Marketing
+                  </option>
+                  <option>
+                    VWL
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+                <optgroup label="Wirtschaft">
+                  <option>
+                    Kriminologie
+                  </option>
+                  <option>
+                    Philosophie
+                  </option>
+                  <option>
+                    Psychologie
+                  </option>
+                  <option>
+                    Pädagogik
+                  </option>
+                  <option>
+                    Theologie
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+              </select>
+            </div>
+          </p>
+          <p class="control"style="margin-top:-2em;">
+            <input class="input" type="text" style="color:black; background-color: #ECF0F1; border-color: darkgrey;" placeholder="Suche">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="columns2" >
+        <p class="text" style="font-size:70px; margin-left: -3.9em; margin-top:-2em;"><strong class="text"id="oberkategorien"style="margin-left: 6em; font-size: 24px;">Selbst erstellte Karteien</strong></p>
+      </div>
+    </div>
+
+    <div class="columns is-multiline" style="margin-top:2px;margin-left: 27.6em;">
+      {{range .}}
+
+      {{if eq .ersteller "Max Mustermann"}}
+      <div class="column is-3" id="kasten">
+        <h1 class="bold-text">{{.oberkategorie}} ▶ {{.unterkategorie}}</h1>
+        <div class="columns is-gapless">
+          <div class="column is-9" id="hex" style="margin-top: 0em;">
+            <a href="anschauen">
+              <h2><br>{{.titel}}</h2> </a>
+            </div>
+            <div class="column is-3" style="background-color: white;">
+              <br>
+              <div class="hexagon"> <div id=number>23</div><div id="karten">Karten</div></div>
+            </div>
+          </div>
+          <p><br>{{.beschreibung}}</p>
+            <table id="table">
+              <tbody>
+                <tr>
+                  <td style="padding-left: 5%;">Sichtbarkeit:</td>
+                  {{if .privat}}
+                  <td><b>Privat</b></td>
+                  {{else}}
+                  <td><b>Öffentlich</b></td>
+                  {{end}}
+                </tr>
+                <tr>
+                  <td style="padding-left: 5%;">Fortschritt:</td>
+                  <td><b>{{.fortschritt}}%</b></td>
+                </tr>
+              </tbody>
+            </table>
+            <div id="learnbuttons">
+              <br> <a href="lernen"><button class="button button-yellow white-text bold-text" id="button-small"  type="submit"> Lernen
+              </button></a>
+              <a href="bearbeiten2"><button class="button button-green white-text" id="button-small" type="submit"> Bearbeiten
+              </button></a>
+              <a  href="#popup1"><button class="button button-red" type="submit">
+                <span class="icon">
+                  <figure class="image is-24x24">
+                    <img src="img/Icons/Delete.svg">
+                  </figure>
+                </span> </button></a>
+                <div id="popup1" class="overlay">
+                  <div class="popup">
+                    <h2 class="center bold-text white-text"style="margin-top: 3px;">Löschen</h2>
+                    <h3 class="center"style=" margin-top: -20px;">Bist du dir sicher, dass du deine Kartei löschen willst?</h3>
+                    <div class="center"style="margin-left:10%; margin-top:10%;">
+                      <a class="close" href="#"><button class="button button-green white-text bold-text" id="button-normal" type="submit">
+                        Kartei behalten</button></a>
+                        <a class="close" href="#"><button class="button button-red white-text bold-text" id="button-normal" type="submit">
+                          Kartei löschen </button></a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {{else}}
+                {{end}}
+                {{end}}
+
+
+              </div>
+              <div class="columns2" >
+                <p class="text" style="font-size:70px; margin-left: -4em; margin-top:-1.7em;"><strong class="text"id="oberkategorien"style="margin-left: 12.7em; font-size: 24px;">Gelernte Karteien anderer Nutzer</strong></p>
+              </div>
+              <div class="columns is-multiline" style="margin-top:2px;margin-left: 27.7em;">
+                {{range .}}
+                {{if eq .ersteller "Frauke Musterfrau"}}
+                <div class="column is-3" id="kasten">
+                  <h1 class="bold-text">{{.oberkategorie}} ▶ {{.unterkategorie}}</h1>
+                  <div class="columns is-gapless">
+                    <div class="column is-9" id="hex"style="margin-top: 0em;">
+                      <a href="anschauen">
+                        <h2><br>{{.titel}}</h2> </a>
+                      </div>
+                      <div class="column is-3" style="background-color: white;">
+                        <br>
+                        <div class="hexagon"> <div id=number>23</div><div id="karten">Karten</div></div>
+                      </div>
+                    </div>
+
+                    <p><br>{{.beschreibung}}</p>
+                      <table id="table">
+                        <tbody>
+                          <tr>
+                            <td style="padding-left: 5%;">Sichtbarkeit:</td>
+                            {{if .privat}}
+                            <td><b>Privat</b></td>
+                            {{else}}
+                            <td><b>Öffentlich</b></td>
+                            {{end}}
+                          </tr>
+                          <tr>
+                            <td style="padding-left: 5%;">Fortschritt:</td>
+                            <td><b>{{.fortschritt}}%</b></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="center" id="learnbuttons">
+                        <br> <a href="lernen"><button class="button button-yellow white-text bold-text" id="button-small"  type="submit"> Lernen
+                        </button></a>
+                        <a href="bearbeiten2"><button class="button button-green white-text" id="button-small" type="submit"> Bearbeiten
+                        </button></a>
+                        <a  href="#popup1"><button class="button button-red" type="submit">
+                          <span class="icon">
+                            <figure class="image is-24x24">
+                              <img src="img/Icons/Delete.svg">
+                            </figure>
+                          </span> </button></a>
+                          <div id="popup1" class="overlay">
+                            <div class="popup">
+                              <h2 class="center bold-text white-text"style="margin-top: 3px;">Löschen</h2>
+                              <h3 class="center"style=" margin-top: -20px;">Bist du dir sicher, dass du deine Kartei löschen willst?</h3>
+                              <div class="center"style="margin-left:10%; margin-top:10%;">
+                                <a class="close" href="#"><button class="button button-green white-text bold-text" id="button-normal" type="submit">
+                                  Kartei behalten</button></a>
+                                  <a class="close" href="#"><button class="button button-red white-text bold-text" id="button-normal" type="submit">
+                                    Kartei löschen </button></a>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {{else}}
+                          {{end}}
+                          {{end}}
+                        </div>
+                      </body>
+                      </html>

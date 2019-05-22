@@ -1,0 +1,51 @@
+		{{define "navbarUL"}}
+
+ <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" id="nav">
+
+            <div class="navbar-brand center">
+                <a class="navbar-item" href="./index">
+                    <img src="./img/Logo/Logo.svg" alt="Brain Train Logo">
+                    <span class="white-text logo"><span class="navbar-bold white-text">Brain</span>Train</span>
+                </a>
+                <a role="button" class="navbar-burger burger is-hidden-desktop" data-target="navMenu" aria-label="menu" aria-expanded="false" id="touch-burger">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start"> 
+                    <div id="menuToggle">
+                        <input type="checkbox" />
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <a role="button" class="navbar-item burger is-hidden-touch" data-target="navMenu" aria-label="menu" aria-expanded="false" id="desktop-burger">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <input class="input" type="text"  style="color:white; background-color: var(--prim-gruen, green);" placeholder="Nutzername">
+                    </div>
+                    <div class="navbar-item">
+                        <input class="input" type="password" placeholder="Password">
+                    </div>
+                    <div class="navbar-item">
+                        <a href="/meinekarteien">
+
+                            <button class="button is-normal button-yellow white-text bold-text" type="submit">Login</button></a>
+                    </div>
+                    <div class="navbar-item">
+                        <a class="white-text" href="/registrieren">Registrieren</a>
+                    </div>
+                    <div class="navbar-item" id="navbar-menu-placeholder"->
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        {{end}}

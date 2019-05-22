@@ -1,0 +1,53 @@
+		
+		{{define "navbar"}}
+        
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" id="nav">
+
+            <div class="navbar-brand center">
+                <a class="navbar-item" href="./index">
+                    <img src="/img/Logo/Logo.svg" alt="Brain Train Logo">
+                    <span class="white-text logo"><span class="navbar-bold white-text">Brain</span>Train</span>
+                </a>
+                <a role="button" class="navbar-burger burger is-hidden-desktop" data-target="navMenu" aria-label="menu" aria-expanded="false" id="touch-burger">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start"> 
+                    <div id="menuToggle">
+                        <input type="checkbox" />
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <a role="button" class="navbar-item burger is-hidden-touch" data-target="navMenu" aria-label="menu" aria-expanded="false" id="desktop-burger">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-end">
+
+                    <div class="navbar-item">
+                        <a href="bearbeiten"><button class="button is-normal button-yellow white-text bold-text"
+                                                          type="submit"> Neue Kartei </button></a>
+                    </div>
+                    <div class="navbar-item">
+                        <p class="right"><strong class="white-text"> Max Mustermann</strong> <br> <a href="/index" class="white-text">Logout</a></p>
+
+                    </div>
+                    <div class="navbar-item">
+                        <a href="/profil">
+                            <img src="./img/Icons/Mein-Profil.svg">
+                        </a>
+                    </div>
+                    <div class="navbar-item" id="placeholder">
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+		{{end}}

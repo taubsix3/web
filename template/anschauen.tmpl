@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       {{template "head"}}
+    </head>
+    <body>
+       {{template "navbar"}}
+
+        {{template "sidemenu"}}
+
+        <div class="column" id="content">
+            <div class="columns2">
+                <div class="columns2">
+                    <br>
+                    <br>
+                    <p class="text" style="font-size:70px; margin-left: -5.2em; margin-top:-1em;"><strong class="text" id="ueberschrift">Kartei anschauen</strong></p>
+
+                    <p class="subtitle is-6"style="margin-left: -20.7em;">Hier kannst du dir eine beliebige Kartei anschauen ohne Sie zu bearbeiten.</p>
+                </div>
+
+            </div>
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="boxfull" style="margin-top: 2em; margin-left: 21.5em; font-size:18px;">
+                        <table class="category">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Kategorie</td>
+                                    <td>Nutzername</td>
+                                    <td>Fortschritt</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {{with .Kasten}}
+                                <tr>
+                                    <th>{{.Titel}}</th>
+                                    <th>{{.Oberkategorie}} ▶ {{.Unterkategorie}}</th>
+                                    <th>{{.Ersteller}}</th>
+                                    <th>{{.Fortschritt}}%</th>
+                                </tr>
+                                {{end}}
+                            </tbody>
+                        </table>
+
+                        <div style="margin-top:-57px; margin-left:1350px;">
+                            <div class="hexagon">
+                                <div id=number>23</div>
+                                <div id="karten">Karten</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {{range .Karten}}
+            <div class="columns2" style="margin-top: -12em; margin-left:16.8em;">
+
+                <div class="column is-4">
+
+                    <div class="box" style="margin-left: 6.6em">
+                        <p class="left">{{.Nr}}</p>
+                        <p class="bold-text left">{{.Titel}}</p>
+
+                    </div>
+
+                </div>
+                <div class="column is-8">
+                    <div class="boxbig" style="margin-top:-36.6em; margin-left: 38em; height: auto;">
+                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+                            <div class="column is-3 box-item" style="text-align: right;">
+                                Titel
+                            </div>
+                            <div class="column is-6 box-item bold-text left">
+                                Titel der Karte
+                            </div>
+
+                            <div class="column is-4">
+                                <div class="hexagongrey" style="margin-top: -5px; margin-left: -200px;">
+                                    <div id=hexagongreynumber>0</div>
+                                </div>
+                                <div class="hexagon" style="margin-top: -44.6px; margin-left:-130px;">
+                                    <div id=hexagongreynumber>1</div>
+                                </div>
+                                <div class="hexagongrey" style="margin-top: -44.2px;; margin-left:-60px;">
+                                    <div id=hexagongreynumber>2</div>
+                                </div>
+                                <div class="hexagongrey" style="margin-top: -43.8px; margin-left:10px;">
+                                    <div id=hexagongreynumber>3</div>
+                                </div>
+                                <div class="hexagongrey" style="margin-top: -43.4px; margin-left:80px;">
+                                    <div id=hexagongreynumber>4</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+                            <div class="column is-3 box-item" style="text-align: right;">
+                                Frage
+                            </div>
+                            <div class="column is-6 box-item left">
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            </div>
+                        </div>
+
+                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+                            <div class="column is-3 box-item" style="text-align: right;">
+                                Antwort
+                            </div>
+                            <div class="column is-6 box-item left">
+                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+    </body>
+</html>

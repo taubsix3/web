@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {{template "head"}}
+</head>
+<body>
+  {{template "navbar"}}
+
+  {{template "sidemenu"}}
+
+  <div class="column" id="content">
+    <div class="columnns">
+      <div class="columns2">
+        <br>
+        <br>
+        <p class="text" style="font-size:70px; margin-left: -0.2em; margin-top:-1em;"><strong class="text" id="ueberschrift"> Karteikästen</strong></p>
+
+        <p class="subtitle is-6"style="margin-left: 1.4em;">Im Karteikasten findest du alle öffentlichen Kartein.</p>
+      </div>
+      <div class="column">
+        <div class="is-pulled-right field is-grouped" >
+          <p class="control">
+            <div class="select" style="margin-top:-1.5em;">
+              <select id="select">
+                <option>Sortieren nach...</option>
+                <optgroup label="Naturwissenschaften">
+                  <option>
+                    Biologie
+                  </option>
+                  <option>
+                    Chemie
+                  </option>
+                  <option>
+                    Elektotechnik
+                  </option>
+                  <option>
+                    Informatik
+                  </option>
+                  <option>
+                    Mathematik
+                  </option>
+                  <option>
+                    Medizin
+                  </option>
+                  <option>
+                    Naturkunde
+                  </option>
+                  <option>
+                    Physik
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+                <optgroup label="Sprachen">
+                  <option>
+                    Chinesisch
+                  </option>
+                  <option>
+                    Deutsch
+                  </option>
+                  <option>
+                    Englisch
+                  </option>
+                  <option>
+                    Französisch
+                  </option>
+                  <option>
+                    Griechisch
+                  </option>
+                  <option>
+                    Italienisch
+                  </option>
+                  <option>
+                    Latein
+                  </option>
+                  <option>
+                    Russisch
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+                <optgroup label="Gesellschaft">
+                  <option>
+                    Ethik
+                  </option>
+                  <option>
+                    Geschichte
+                  </option>
+                  <option>
+                    Literatur
+                  </option>
+                  <option>
+                    Musik
+                  </option>
+                  <option>
+                    Politik
+                  </option>
+                  <option>
+                    Recht
+                  </option>
+                  <option>
+                    Soziales
+                  </option>
+                  <option>
+                    Sport
+                  </option>
+                  <option>
+                    Verkehrskunde
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+                <optgroup label="Wirtschaft">
+                  <option>
+                    BWL
+                  </option>
+                  <option>
+                    Finanzen
+                  </option>
+                  <option>
+                    Landwirtschaft
+                  </option>
+                  <option>
+                    Marketing
+                  </option>
+                  <option>
+                    VWL
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+                <optgroup label="Geisteswissenschaft">
+                  <option>
+                    Kriminologie
+                  </option>
+                  <option>
+                    Philosophie
+                  </option>
+                  <option>
+                    Psychologie
+                  </option>
+                  <option>
+                    Pädagogik
+                  </option>
+                  <option>
+                    Theologie
+                  </option>
+                  <option>
+                    Sonstiges
+                  </option>
+                </optgroup>
+              </select>
+            </div>
+          </p>
+          <p class="control"style="margin-top:-1.5em;">
+            <input class="input" type="text" style="color:black; background-color: #ECF0F1; border-color: darkgrey;" placeholder="Suche">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="columns2" >
+        <p class="text" style="font-size:70px; margin-left: -3.9em; margin-top:-2em;"><strong class="text"id="oberkategorien"style="margin-left: 6.2em; font-size: 24px;">Naturwissenschaften</strong></p>
+      </div>
+    </div>
+
+    <div class="columns is-multiline" style="margin-top:2px; margin-left: 27em">
+      {{range .}}
+
+      {{if .privat}}
+      <!-- Do nothing -->
+      {{else}}
+      {{if eq .oberkategorie "Naturwissenschaften"}}
+
+      <div class="column is-3" id="kasten">
+        <h1 class="bold-text">{{.unterkategorie}}</h1>
+        <div class="columns is-gapless">
+          <div class="column is-9" id="hex" style="margin-top:0em; ">
+            <a href="/anschauen?_id={{._id}}">
+              <h2><br>{{.titel}}</h2> </a>
+            </div>
+            <div class="column is-3" style="background-color: white;">
+              <br>
+              <div class="hexagon"> <div id=number>6</div><div id="karten">Karten</div></div>
+            </div>
+          </div>
+          <p><br>{{.beschreibung}}</p>
+          <div id="learn">
+            <a href="lernen"><button class="button is-norma button-yellow white-text"
+              type="submit"> Lernen </button></a>
+            </div>
+          </div>
+          {{else}}
+
+          {{end}}
+          {{end}}
+          {{end}}
+
+        </div>
+        <div class="container">
+          <div class="columns2" >
+            <p class="text" style="font-size:70px; margin-left: -3.9em; margin-top:-2em;"><strong class="text"id="oberkategorien"style="margin-left: 6.2em; font-size: 24px;">Sprachen</strong></p>
+          </div>
+        </div>
+
+        <div class="columns is-multiline" style="margin-top:2px; margin-left: 27em">
+          {{range .}}
+
+          {{if .privat}}
+          <!-- Do nothing -->
+          {{else}}
+          {{if eq .oberkategorie "Sprachen"}}
+
+          <div class="column is-3" id="kasten">
+            <h1 class="bold-text">{{.unterkategorie}}</h1>
+            <div class="columns is-gapless">
+              <div class="column is-9" id="hex" style="margin-top:0em; ">
+                <a href="/anschauen?_id={{._id}}">
+                  <h2><br>{{.titel}}</h2> </a>
+                </div>
+                <div class="column is-3" style="background-color: white;">
+                  <br>
+                  <div class="hexagon"> <div id=number>6</div><div id="karten">Karten</div></div>
+                </div>
+              </div>
+              <p><br>{{.beschreibung}}</p>
+              <div id="learn">
+                <a href="lernen"><button class="button is-norma button-yellow white-text"
+                  type="submit"> Lernen </button></a>
+                </div>
+              </div>
+              {{else}}
+
+              {{end}}
+              {{end}}
+              {{end}}
+
+            </div>
+
+          </div>
+          <div class="container">
+            <div class="columns2" >
+              <p class="text" style="font-size:70px; margin-left: -3.9em; margin-top:-2em;"><strong class="text"id="oberkategorien"style="margin-left: 6.2em; font-size: 24px;">Gesellschaft</strong></p>
+            </div>
+          </div>
+
+          <div class="columns is-multiline" style="margin-top:2px; margin-left: 27em">
+            {{range .}}
+
+            {{if .privat}}
+            <!-- Do nothing -->
+            {{else}}
+            {{if eq .oberkategorie "Gesellschaft"}}
+
+            <div class="column is-3" id="kasten">
+              <h1 class="bold-text">{{.unterkategorie}}</h1>
+              <div class="columns is-gapless">
+                <div class="column is-9" id="hex" style="margin-top:0em; ">
+                  <a href="/anschauen?_id={{._id}}">
+                    <h2><br>{{.titel}}</h2> </a>
+                  </div>
+                  <div class="column is-3" style="background-color: white;">
+                    <br>
+                    <div class="hexagon"> <div id=number>6</div><div id="karten">Karten</div></div>
+                  </div>
+                </div>
+                <p><br>{{.beschreibung}}</p>
+                <div id="learn">
+                  <a href="lernen"><button class="button is-norma button-yellow white-text"
+                    type="submit"> Lernen </button></a>
+                  </div>
+                </div>
+                {{else}}
+
+                {{end}}
+                {{end}}
+                {{end}}
+
+              </div>
+
+            </div>
+            <div class="container">
+              <div class="columns2" >
+                <p class="text" style="font-size:70px; margin-left: -3.9em; margin-top:-2em;"><strong class="text"id="oberkategorien"style="margin-left: 6.2em; font-size: 24px;">Wirtschaft</strong></p>
+              </div>
+            </div>
+
+            <div class="columns is-multiline" style="margin-top:2px; margin-left: 27em">
+              {{range .}}
+
+              {{if .privat}}
+              <!-- Do nothing -->
+              {{else}}
+              {{if eq .oberkategorie "Wirtschaft"}}
+
+              <div class="column is-3" id="kasten">
+                <h1 class="bold-text">{{.unterkategorie}}</h1>
+                <div class="columns is-gapless">
+                  <div class="column is-9" id="hex" style="margin-top:0em; ">
+                    <a href="/anschauen?_id={{._id}}">
+                      <h2><br>{{.titel}}</h2> </a>
+                    </div>
+                    <div class="column is-3" style="background-color: white;">
+                      <br>
+                      <div class="hexagon"> <div id=number>6</div><div id="karten">Karten</div></div>
+                    </div>
+                  </div>
+                  <p><br>{{.beschreibung}}</p>
+                  <div id="learn">
+                    <a href="lernen"><button class="button is-norma button-yellow white-text"
+                      type="submit"> Lernen </button></a>
+                    </div>
+                  </div>
+                  {{else}}
+
+                  {{end}}
+                  {{end}}
+                  {{end}}
+
+                </div>
+
+              </div>
+              <div class="container">
+                <div class="columns2" >
+                  <p class="text" style="font-size:70px; margin-left: -3.9em; margin-top:-2em;"><strong class="text"id="oberkategorien"style="margin-left: 6.2em; font-size: 24px;">Geisteswissenschaft</strong></p>
+                </div>
+              </div>
+
+              <div class="columns is-multiline" style="margin-top:2px; margin-left: 27em">
+                {{range .}}
+
+                {{if .privat}}
+                <!-- Do nothing -->
+                {{else}}
+                {{if eq .oberkategorie "Geisteswissenschaft"}}
+
+                <div class="column is-3" id="kasten">
+                  <h1 class="bold-text">{{.unterkategorie}}</h1>
+                  <div class="columns is-gapless">
+                    <div class="column is-9" id="hex" style="margin-top:0em; ">
+                      <a href="/anschauen?_id={{._id}}">
+                        <h2><br>{{.titel}}</h2> </a>
+                      </div>
+                      <div class="column is-3" style="background-color: white;">
+                        <br>
+                        <div class="hexagon"> <div id=number>6</div><div id="karten">Karten</div></div>
+                      </div>
+                    </div>
+                    <p><br>{{.beschreibung}}</p>
+                    <div id="learn">
+                      <a href="lernen"><button class="button is-norma button-yellow white-text"
+                        type="submit"> Lernen </button></a>
+                      </div>
+                    </div>
+                    {{else}}
+
+                    {{end}}
+                    {{end}}
+                    {{end}}
+
+                  </div>
+                </body>
+                </html>

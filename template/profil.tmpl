@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+           {{template "head"}}
+
+    </head>
+    <body>
+             {{template "navbar"}}
+
+        {{template "sidemenu"}}
+
+        <div class="column" id="content">
+            <div class="columns2">
+                <div class="columns2">
+                    <br>
+                    <br>
+                    <p class="text " style="font-size:70px; margin-left: -5.2em; margin-top:-1em;"><strong class="text" id="ueberschrift" style="font-weight: bold;">Mein Profil</strong></p>
+
+                    <p class="subtitle is-6"style="margin-left: -20.7em;">Hier kannst du deine Profildaten aktualisieren oder ändern.</p>
+                </div>
+
+            </div>
+            <div class="columns">
+                <div class="column is-3">
+                    <div class="box" style="margin-top: 2em; margin-left: 22em; font-size:18px;">
+                        <figure class="image is-128x128">
+                            <img style="background-color: gray; border-radius: 50%; margin-left:7em;; margin-top:-0.5em;;"
+                                 src="img/Icons/Mein-Profil.svg">
+                        </figure>
+                        <a href="#"><button class="button button-yellow white-text bold-text center" style="margin-top: 0.4em;margin-left: -0.1em;"id="button-smaler"  type="submit"> Edit
+                            </button></a>
+                        <h1 style="font-size: 28px; margin-top: 0.3em;">Max Mustermann</h1>
+                        <p>mustermann@example.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-3">
+                    <div class="box" style="text-align: left;margin-top: 0.3em; margin-left: 22em; font-size:18px;">
+                        <h1 class="bold-text"style="font-size: 28px; margin-top: 0.2em;margin-left: 40px;">Statistik</h1>
+                        <table class="statistik"style="margin-top: 0.5em;" >
+                            <tbody>
+                                <tr>
+                                    <td>Erstellte Karten:</td>
+                                    <th>24</th>
+                                </tr>
+                                <tr>
+                                    <td>Erstellte Karteien:</td>
+                                    <th>7</th>
+                                </tr>
+                                <tr>
+                                    <td>Mitglied seit:</td>
+                                    <th>24.12.2018</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="columns2" style="margin-top: -12em; margin-left:16.8em;">
+
+                <div class="box" style="margin-top: -32.95em;height: 30.5em; width: auto;margin-left: 37em;">
+                    <h1 class="text left" style="font-weight: bold; font-size: 24px;">Update der Profildaten</h1>
+                    <div class="columns" style="margin-top: 20px; margin-left:-10px;">
+                        <div class="column box-item" style="text-align: right;">
+                            Neue E-Mail
+                        </div>
+                        <div class="column">
+                            <div class="box-item">
+                                <input class="input is-hovered is-normal inputbackground" id="register" type="text" style="size:50px;"
+                                       placeholder="muster@example.com">
+                            </div>
+                        </div>
+                        <div class="column arrow_box white-text left" style="font-size: 14px;margin-top: 0.1em;">
+                            Diese Mail ist bereits vergeben!
+                        </div>
+                    </div>
+                    <div class="columns" style="margin-top: 20px; margin-left:-10px;">
+                        <div class="column box-item" style="text-align: right; margin-right: 4em;">
+                            Altes Password
+                        </div>
+                        <div class="column">
+                            <div class="box-item" style="margin-right: 3.6em; margin-left: -3.9em;">
+                                <input class=" input is-hovered is-normal inputbackground" id="register" type="password" style="size:50px;">
+                            </div>
+                        </div>
+                        <div class="column">
+                        </div>
+                    </div>
+                    <div class="columns" style="margin-top: -20px; margin-left:-10px;">
+                        <div class="column box-item" style="text-align: right;">
+                            Neues Passwort
+                        </div>
+                        <div class="column">
+                            <div class="box-item">
+                                <input class="input is-hovered is-normal inputbackground" id="register" type="password" style="size:50px;">
+                            </div>
+                        </div>
+                        <div class="column arrow_box white-text left" style="font-size: 14px; margin-top: -0.5em;">
+                            Altes Passwort darf nicht mit neuem übereinstimmen
+                        </div>
+                    </div>
+                    <div class="columns" style="margin-top: -20px; margin-left:-10px;">
+                        <div class="column box-item" style="text-align: right; margin-right: 4em;">
+                            Password wiederholen
+                        </div>
+                        <div class="column">
+                            <div class="box-item" style="margin-right: 3.6em; margin-left: -3.9em;">
+                                <input class=" input is-hovered is-normal inputbackground" id="register" type="password" style="size:50px;">
+                            </div>
+                        </div>
+                        <div class="column">
+                        </div>
+                    </div>
+
+                    <div id="buttonscenter" style="margin-top: 2em;">
+                        <br> <a href="#"><button class="button button-yellow white-text" id="button-small"  type="submit"> Speichern
+                        </button></a>
+
+
+                        <a  href="#popup1"><button class="button button-red" type="submit">
+                            <span class="icon">
+                                <figure class="image is-24x24">
+                                    <img src="img/Icons/Delete.svg">
+                                </figure>
+                            </span> </button></a>
+                        <div id="popup1" class="overlay">
+                            <div class="popup">
+                                <h2 class="bold-text white-text"style="margin-top: 3px;">Löschen</h2>
+                                <h3 style=" margin-top: 20px;">Bist du dir sicher, dass du dein Profil löschen möchtest?</h3>
+                                <div style="margin-left:10%; margin-top:10%;">
+                                    <a class="close" href="#"><button class="button button-green white-text bold-text" id="button-normal" type="submit">
+                                        Profil behalten</button></a>
+                                    <a><button class="button button-red white-text bold-text" id="button-normal" type="submit">
+                                        Profil löschen </button></a>
+                                </div>
+
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
