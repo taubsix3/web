@@ -2,8 +2,8 @@ package model
 
 import (
 	"encoding/json"
-
-	couchdb "../../couchdb-golang-master"
+	couchdb "github.com/leesper/couchdb-golang"
+	"time"
 	)
 
 //User data structure
@@ -15,6 +15,7 @@ type User struct {
 	Password string `json:"password"`
 	Mail     string `json:"mail"`
 	Status   bool   `json:"status"`
+	Created   time.Time   `json:"created"`
 	Kasten   []Kasten
 
 	*couchdb.Document

@@ -18,6 +18,13 @@ func main() {
 	http.HandleFunc("/meinekarteien", controller.MeineKarteien)
 	http.HandleFunc("/profil", controller.Profil)
 
+	http.HandleFunc("/register", controller.Register)
+http.HandleFunc("/add-user", controller.AddUser)
+http.HandleFunc("/login", controller.Login)
+http.HandleFunc("/authenticate-user", controller.AuthenticateUser)
+http.HandleFunc("/logout", controller.Logout)
+
+
 	fs := http.FileServer(http.Dir("static/"))
 	http.Handle("/css/", http.StripPrefix("/", fs))
 	http.Handle("/fonts/", http.StripPrefix("/", fs))

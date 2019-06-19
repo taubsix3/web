@@ -17,14 +17,16 @@
 
                 <div class="box" style="margin-top: 3em;">
                     <h1 class="text left">Wir freuen uns, dass du dich bei BrainTrain anmelden möchtest. Bitte beachte, dass <span class="bold-text">pro E-Mail Adresse nur ein Nutzer</span> erstellt werden kann und jeder <span class="bold-text">Nutzername nur einmal vergeben </span>wird.</h1>
-                    <div class="columns" style="margin-top: 20px; margin-left:-10px;">
+                    <form action="/add-user" method="POST">
+
+                    <div class="columns" style="margin-top: 20px; margin-left:-10px;" >
                         <div class="column box-item" style="text-align: right;">
                             Nutzername
                         </div>
                         <div class="column">
                             <div class="box-item">
 
-                                <input class="input is-hovered is-normal inputbackground" id="is-black" type="text" style="size:50px;"
+                                <input class="input is-hovered is-normal inputbackground" id="is-black" type="text"name="username" style="size:50px;"
                                        placeholder="maxmustermann">
                             </div>
                         </div>
@@ -38,7 +40,7 @@
                         </div>
                         <div class="column">
                             <div class="box-item">
-                                <input class="input is-hovered is-normal inputbackground" id="is-black" type="text" style="size:50px;"
+                                <input class="input is-hovered is-normal inputbackground" name="mail" id="is-black" type="text" style="size:50px;"
                                        placeholder="muster@example.com">
                             </div>
                         </div>
@@ -52,7 +54,7 @@
                         </div>
                         <div class="column">
                             <div class="box-item" style="margin-right: 3.6em; margin-left: -3.9em;">
-                                <input class=" input is-hovered is-normal inputbackground" id="is-black" type="password" style="size:50px;">
+                                <input class=" input is-hovered is-normal inputbackground" id="is-black" name="password" type="password" style="size:50px;">
                             </div>
                         </div>
                         <div class="column">
@@ -101,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+                  </form>
                 </div>
             </div>
         </div>
