@@ -14,11 +14,8 @@
                     <br>
 
                     <h1 class="title"><strong>Willkommen bei <span id= "darkGreen-text">Brain<span id="lightGreen-text">Train</span></span></strong></h1>
-                    {{range .}}
-                    Hier haben sich <strong>{{.name}}</strong> angemeldet und zusammen <strong>124 Lernkarten</strong> in <strong> 22 Karteien</strong> erstellt.
-                    {{else}}
-                    <h2> ups</h2>
-                    {{end}}
+                    Hier haben sich <strong>{{.Nutzeranzahl}} Nutzer</strong> angemeldet und zusammen <strong>{{.Karteikartenanzahl}} Lernkarten</strong> in <strong> {{.Karteienanzahl}} Karteien</strong> erstellt.
+
                 </div>
             </div>
         </div>

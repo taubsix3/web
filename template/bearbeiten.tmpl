@@ -8,6 +8,7 @@
 
         {{template "sidemenu"}}
 
+{{with .Kasten}}
         <div class="column" id="content">
             <div class="columns2">
                 <div class="columns2">
@@ -28,7 +29,7 @@
                             </div>
                             <div class="column is-6">
                                 <div class="box-item">
-                                    <input class="input is-hovered is-normal inputbackground" type="text" style="size:50px; color: black;">
+                                    <input class="input is-hovered is-normal inputbackground" type="text" style="size:50px; color: black;" placeholder="{{.Titel}}">
                                 </div>
                             </div>
                             <div class="column is-4" style="font-size: 18px;">
@@ -175,7 +176,7 @@
                                         </optgroup>
                                     </select>
 
-                                </div>                               
+                                </div>
 
                             </div>
                             <div class="column is-4 arrow_box white-text" style="font-size: 18px;">
@@ -188,7 +189,7 @@
                             </div>
                             <div class="column is-5">
                                 <div class="box-item">
-                                    <input class="input is-hovered is-normal inputbackground" id="bearbeiten" type="text"
+                                    <input class="input is-hovered is-normal inputbackground" id="bearbeiten" type="text" placeholder="{{.Beschreibung}}"
                                            style="size:50px;">
                                 </div>
                             </div>
@@ -229,7 +230,7 @@
                             </div>
                             <div class="column">
                                 <div class="box-item">
-                                    <a href="karteikasten"><button class="button button-yellow white-text bold-text" style=" width:200px; "
+                                    <a href="/bearbeiten2?_id={{._id}}"><button class="button button-yellow white-text bold-text" style=" width:200px; "
                                                                         type="submit"> Speichern und weiter </button></a>
                                 </div>
                             </div>
@@ -242,5 +243,6 @@
                 </div>
             </div>
         </div>
+        {{end}}
     </body>
 </html>

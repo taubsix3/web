@@ -1,131 +1,137 @@
 <!DOCTYPE html>
 <html>
-    <head>
-               {{template "head"}}
+<head>
+  {{template "head"}}
 
-        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    </head>
-    <body>
-              {{template "navbar"}}
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+  {{template "navbar"}}
 
-        {{template "sidemenu"}}
+  {{template "sidemenu"}}
 
-        <div class="column" id="content">
-            <div class="columns2">
-                <div class="columns2">
-                    <br>
-                    <br>
-                    <p class="text " style="font-size:70px; margin-left: -5.2em; margin-top:-1em;"><strong class="text" id="ueberschrift" style="font-weight: bold;">Lernen</strong></p>
+  <div class="column" id="content">
+    <div class="columns2">
+      <div class="columns2">
+        <br>
+        <br>
+        <p class="text " style="font-size:70px; margin-left: -5.2em; margin-top:-1em;"><strong class="text" id="ueberschrift" style="font-weight: bold;">Lernen</strong></p>
 
-                    <p class="subtitle is-6"style="margin-left: -20.7em;">Hier wird dir zufällig eine Karte aus der gewählten Kartei angezeigt.</p>
-                </div>
+        <p class="subtitle is-6"style="margin-left: -20.7em;">Hier wird dir zufällig eine Karte aus der gewählten Kartei angezeigt.</p>
+      </div>
 
+    </div>
+    <div class="columns">
+      <div class="column is-12">
+        <div class="boxfull" style="margin-top: 2em; margin-left: 21.5em; font-size:18px;">
+          <table class="category">
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td></td>
+                <td>Kategorie</td>
+                <td></td>
+                <td>Fortschritt</td>
+                <td></td>
+                <td>Wiederholung</td>
+                <td>0</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {{with .Kasten}}
+                <th>Geometrie</th>
+                <th></th>
+                <th>Naturwissenschaften ▶ Mathematik</th>
+                <th></th>
+                <th>0%</th>
+                <th></th>
+                <th>Karten</th>
+                <th>5</th>
+                <th>6</th>
+                <th>2</th>
+                <th>1</th>
+                <th>0</th>
+                {{end}}
+              </tr>
+
+            </tbody>
+          </table>
+          <div style="margin-top:-60px; margin-left:1350px;">
+            <div class="hexagon">
+              <div id=number>23</div>
+              <div id="karten">Karten</div>
             </div>
-            <div class="columns">
-                <div class="column is-12">
-                    <div class="boxfull" style="margin-top: 2em; margin-left: 21.5em; font-size:18px;">
-                        <table class="category">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td></td>
-                                    <td>Kategorie</td>
-                                    <td></td>
-                                    <td>Fortschritt</td>
-                                    <td></td>
-                                    <td>Wiederholung</td>
-                                    <td>0</td>
-                                    <td>1</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                    <td>4</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Geometrie</th>
-                                    <th></th>
-                                    <th>Naturwissenschaften ▶ Mathematik</th>
-                                    <th></th>
-                                    <th>0%</th>
-                                    <th></th>
-                                    <th>Karten</th>
-                                    <th>5</th>
-                                    <th>6</th>
-                                    <th>2</th>
-                                    <th>1</th>
-                                    <th>0</th>
-                                </tr>
+          </div>
 
-                            </tbody>
-                        </table>
-                        <div style="margin-top:-60px; margin-left:1350px;">
-                            <div class="hexagon">
-                                <div id=number>23</div>
-                                <div id="karten">Karten</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="columns2" style="margin-top: -12em; margin-left:16.8em;">
-
-                <div class="column is-8">
-                    <div class="boxbig" style="margin-left:280px;margin-top:170px ; height: auto;">
-                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
-                            <div class="column is-3 box-item" style="text-align: right;">
-                                Titel
-                            </div>
-                            <div class="column is-6 box-item bold-text left">
-                                Titel der Karte
-                            </div>
-
-                            <div class="column is-4">
-                                <div class="hexagongrey" style="margin-top: -5px; margin-left: -50px;">
-                                    <div id=hexagongreynumber>0</div>
-                                </div>
-                                <div class="hexagon" style="margin-top: -44.6px; margin-left:20px;">
-                                    <div id=hexagongreynumber>1</div>
-                                </div>
-                                <div class="hexagongrey" style="margin-top: -44.2px;; margin-left:90px;">
-                                    <div id=hexagongreynumber>2</div>
-                                </div>
-                                <div class="hexagongrey" style="margin-top: -43.8px; margin-left:160px;">
-                                    <div id=hexagongreynumber>3</div>
-                                </div>
-                                <div class="hexagongrey" style="margin-top: -43.4px; margin-left:230px;">
-                                    <div id=hexagongreynumber>4</div>
-                                </div>   
-                            </div>
-                        </div>   
-                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
-                            <div class="column is-3 box-item" style="text-align: right;">
-                                Frage
-                            </div>
-                            <div class="column is-6 box-item left">
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.    
-                            </div>
-                        </div>
-
-                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
-                            <div class="column is-3 box-item" style="text-align: right;">
-                                Antwort
-                            </div>
-
-                        </div>  
-                        <div id="buttonscenter">
-                            <a href="lernen2"><button class="button button-yellow white-text button-biggerwhite-text bold-text center" id="button-bigger"  type="submit"> Aufdecken
-                                </button></a>
-
-                        </div>
-                        <br>
-                        <br>
-                        <a href="lernen"><button class="button button-yellow white-text bold-text" id="button-big"  type="submit" style="margin-left: 51em; margin-top: -2em;"> Überspringen
-                            </button></a>
-                    </div>
-                </div>
-            </div>
         </div>
+      </div>
+    </div>
+    <div class="columns2" style="margin-left:16.8em;margin-top:-2em;">
+      {{range .AllKarten}}
+      {{if eq .nummer "1"}}
+      <div class="column is-8" style="margin-left:1px;">
+        <div class="boxbig showBox" style="margin-left:17em; height: auto; margin-top:3em;">
+          <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+            <div class="column is-3 box-item" style="text-align: right;">
+              Titel
+            </div>
+            <div class="column is-6 box-item bold-text left">
+              {{.titel}}
+            </div>
+
+            <div class="column is-4">
+              <div class="hexagongrey" style="margin-top: -5px; margin-left: -50px;">
+                <div id=hexagongreynumber>0</div>
+              </div>
+              <div class="hexagon" style="margin-top: -44.6px; margin-left:20px;">
+                <div id=hexagongreynumber>1</div>
+              </div>
+              <div class="hexagongrey" style="margin-top: -44.2px;; margin-left:90px;">
+                <div id=hexagongreynumber>2</div>
+              </div>
+              <div class="hexagongrey" style="margin-top: -43.8px; margin-left:160px;">
+                <div id=hexagongreynumber>3</div>
+              </div>
+              <div class="hexagongrey" style="margin-top: -43.4px; margin-left:230px;">
+                <div id=hexagongreynumber>4</div>
+              </div>
+            </div>
+          </div>
+          <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+            <div class="column is-3 box-item" style="text-align: right;">
+              Frage
+            </div>
+            <div class="column is-6 box-item left">
+              {{.frage}}
+            </div>
+</div>
+              <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+                <div class="column is-3 box-item" style="text-align: right;">
+                  Antwort
+                </div>
+                <div style="margin-left:6em; margin-top:4em;">
+                <div id="buttonscenter">
+                  <a href="/lernen2?_id=8bd2ab18b0e19de76af573b5d100c65a"><button class="button button-yellow white-text button-biggerwhite-text bold-text center" id="button-bigger"  type="submit"> Aufdecken
+                  </button></a>
+
+                </div>
+              </div>
+              </div>
+
+              <br>
+              <br>
+              <a href="/lernen?_id=8bd2ab18b0e19de76af573b5d100c65a"><button class="button button-yellow white-text bold-text" id="button-big"  type="submit" style="margin-left: 51em; margin-top: -2em;"> Überspringen
+              </button></a>
+          </div>
+          {{else}}
+          {{end}}
+          {{end}}
+        </div>
+      </div>
     </body>
-</html>
+    </html>

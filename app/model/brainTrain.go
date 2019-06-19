@@ -45,7 +45,7 @@ type Karten struct {
 	Frage   string `json:"frage"`
 	Antwort string `json:"antwort"`
 	Kasten  string `json:"kasten"`
-
+Nummer string `json:"nummer"`
 	*couchdb.Document
 }
 
@@ -82,7 +82,7 @@ func GetAllUser() ([]map[string]interface{}, error) {
 			 }
 		}
 	 }`)
-	 
+
 	if err != nil {
 		return nil, err
 	} else {
@@ -186,6 +186,27 @@ func GetKasten(id string) (Kasten, error) {
 		Ersteller:      k["ersteller"].(string)}
 	return kasten, nil
 
+}
+
+//GetIdKarten from DB with ID
+func GetIdKarten(k Kasten) ([]map[string]interface{}, error) {
+	id := k.ID
+	allKarten, err := btDB.QueryJSON(`
+	{
+		"selector": {
+			 "$and": [
+				 {"type":{"$eq": "karten"}},
+				 {"kasten":{"$eq": "` + id + `"}}
+			 ]
+
+		}
+	 }`)
+	if err != nil {
+		return nil, err
+	} else {
+
+		return allKarten, nil
+	}
 }
 
 // ---------------------------------------------------------------------------

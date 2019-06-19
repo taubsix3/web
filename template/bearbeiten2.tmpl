@@ -1,223 +1,150 @@
 <!DOCTYPE html>
 <html>
-    <head>
-       {{template "head"}}
-    </head>
-    <body>
-    {{template "navbar"}}
+<head>
+  {{template "head"}}
+</head>
+<body>
+  {{template "navbar"}}
 
-        {{template "sidemenu"}}
+  {{template "sidemenu"}}
 
-        <div class="column" id="content">
-            <div class="columns2">
-                <div class="columns2">
-                    <br>
-                    <br>
-                    <p class="text" style="font-size:70px; margin-left: -4.6em; margin-top:-1em;"><strong class="text" id="ueberschrift">Kartei erstellen / Kartei bearbeiten</strong></p>
+  <div class="column" id="content">
+    <div class="columns2">
+      <div class="columns2">
+        <br>
+        <br>
+        <p class="text" style="font-size:70px; margin-left: -4.6em; margin-top:-1em;"><strong class="text" id="ueberschrift">Kartei erstellen / Kartei bearbeiten</strong></p>
 
-                    <p class="subtitle is-6"style="margin-left: -18em;">Hier kannst du eine neue Kartei erstellen oder eine vorhandene nach Bedarf bearbeiten.</p>
-                </div>
+        <p class="subtitle is-6"style="margin-left: -18em;">Hier kannst du eine neue Kartei erstellen oder eine vorhandene nach Bedarf bearbeiten.</p>
+      </div>
 
+    </div>
+    {{with .Kasten}}
+    <div class="columns">
+      <div class="column is-12">
+        <div class="boxfull" style="margin-top: 2em; margin-left: 21.5em; font-size:18px;">
+          <table class="category">
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Kategorie</td>
+                <td>Fortschritt</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>{{.Titel}}</th>
+                <th>{{.Oberkategorie}} ▶ {{.Unterkategorie}}</th>
+                <th>{{.Fortschritt}}%</th>
+              </tr>
+
+            </tbody>
+          </table>
+          <div style=" margin-top: -57px; margin-left:700px;">
+            <a href="/bearbeiten?_id={{.ID}}"><button class="button button-green white-text" type="submit" style="margin-left: 30em;"> Bearbeiten
+            </button></a>
+          </div>
+          <div style="margin-top:-45px; margin-left:1350px;">
+            <div class="hexagon">
+              <div id=number>23</div>
+              <div id="karten">Karten</div>
             </div>
-            <div class="columns">
-                <div class="column is-12">
-                    <div class="boxfull" style="margin-top: 2em; margin-left: 21.5em; font-size:18px;">
-                        <table class="category">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Kategorie</td>
-                                    <td>Fortschritt</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Geometrie</th>
-                                    <th>Naturwissenschaften ▶ Mathematik</th>
-                                    <th>0%</th>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                        <div style=" margin-top: -57px; margin-left:700px;">
-                            <a href="bearbeiten"><button class="button button-green white-text" type="submit" style="margin-left: 30em;"> Bearbeiten
-                                </button></a>
-                        </div>
-                        <div style="margin-top:-45px; margin-left:1350px;">
-                            <div class="hexagon">
-                                <div id=number>23</div>
-                                <div id="karten">Karten</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="columns2" style="margin-top: -12em; margin-left:16.8em;">
-                <div class="column is-4">
-                    <div class="box" style="margin-left: 6.6em">
-                        <p class="left">#1</p>
-                        <p class="bold-text left">Titel der Karte</p>
-                        <p class="right"><a href="/bearbeiten2"class="button white-text button-green">Bearbeiten</a> 
-                            <a  href="#popup1"><button class="button button-red" type="submit">
-                                <span class="icon">
-                                    <figure class="image is-24x24">
-                                        <img src="img/Icons/Delete.svg">
-                                    </figure>
-                                </span> </button></a></p>
-                        <div id="popup1" class="overlay">
-                            <div class="popup">
-                                <h2 class="bold-text white-text"style="margin-top: 3px;">Löschen</h2>
-                                <h3 style=" margin-top: 20px;">Bist du dir sicher, dass du deine Karte löschen willst?</h3>
-                                <div style="margin-left:10%; margin-top:10%;">
-                                    <a class="close" href="#"><button class="button button-green white-text bold-text" id="button-normal" type="submit">
-                                        Karte behalten</button></a>
-                                    <a class="close" href="#"><button class="button button-red white-text bold-text" id="button-normal" type="submit">
-                                        Karte löschen </button></a>
-                                </div>
-
-                            </div>
-                        </div> 
-
-
-                    </div>
-                    <div class="box" style="margin-left: 6.6em; margin-top: 1em;">
-                        <p class="left">#2</p>
-                        <p class="bold-text left">Titel der Karte</p>
-                        <p class="right"><a href="/bearbeiten2" class="button white-text button-green">Bearbeiten</a>
-                            <a  href="#popup1"><button class="button button-red" type="submit">
-                                <span class="icon">
-                                    <figure class="image is-24x24">
-                                        <img src="img/Icons/Delete.svg">
-                                    </figure>
-                                </span> </button></a></p>
-                        <div id="popup1" class="overlay">
-                            <div class="popup">
-                                <h2 class="bold-text white-text"style="margin-top: 3px;">Löschen</h2>
-                                <h3 style=" margin-top: 20px;">Bist du dir sicher, dass du deine Karte löschen willst?</h3>
-                                <div style="margin-left:10%; margin-top:10%;">
-                                    <a class="close" href="#"><button class="button button-green white-text bold-text" id="button-normal" type="submit">
-                                        Karte behalten</button></a>
-                                    <a class="close" href="#"><button class="button button-red white-text bold-text" id="button-normal" type="submit">
-                                        Karte löschen </button></a>
-                                </div>
-
-                            </div>
-                        </div> 
-
-                    </div>
-                    <div class="box" style="margin-left: 6.6em; margin-top: 1em;">
-                        <p class="left">#3</p>
-                        <p class="bold-text left">Titel der Karte</p>
-                        <p class="right"><a href="/bearbeiten2"class="button white-text button-green">Bearbeiten</a> 
-                            <a  href="#popup1"><button class="button button-red" type="submit">
-                                <span class="icon">
-                                    <figure class="image is-24x24">
-                                        <img src="img/Icons/Delete.svg">
-                                    </figure>
-                                </span> </button></a></p>
-                        <div id="popup1" class="overlay">
-                            <div class="popup">
-                                <h2 class="bold-text white-text"style="margin-top: 3px;">Löschen</h2>
-                                <h3 style=" margin-top: 20px;">Bist du dir sicher, dass du deine Karte löschen willst?</h3>
-                                <div style="margin-left:10%; margin-top:10%;">
-                                    <a class="close" href="#"><button class="button button-green white-text bold-text" id="button-normal" type="submit">
-                                        Karte behalten</button></a>
-                                    <a class="close" href="#"><button class="button button-red white-text bold-text" id="button-normal" type="submit">
-                                        Karte löschen </button></a>
-                                </div>
-
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="box" style="margin-left: 6.6em; margin-top: 1em;">
-                        <p class="left">#4</p>
-                        <p class="bold-text left">Titel der Karte</p>
-                        <p class="right"><a href="/bearbeiten2" class="button white-text button-green">Bearbeiten</a>
-                            <a  href="#popup1"><button class="button button-red" type="submit">
-                                <span class="icon">
-                                    <figure class="image is-24x24">
-                                        <img src="img/Icons/Delete.svg">
-                                    </figure>
-                                </span> </button></a></p>
-                        <div id="popup1" class="overlay">
-                            <div class="popup">
-                                <h2 class="bold-text white-text"style="margin-top: 3px;">Löschen</h2>
-                                <h3 style=" margin-top: 20px;">Bist du dir sicher, dass du deine Karte löschen willst?</h3>
-                                <div style="margin-left:10%; margin-top:10%;">
-                                    <a class="close" href="#"><button class="button button-green white-text bold-text" id="button-normal" type="submit">
-                                        Karte behalten</button></a>
-                                    <a class="close" href="#"><button class="button button-red white-text bold-text" id="button-normal" type="submit">
-                                        Karte löschen </button></a>
-                                </div>
-
-                            </div>
-                        </div> 
-                    </div>
-                </div>
-                <div class="column is-8">
-                    <div class="box" style="margin-top:-38.2em; margin-left: 38em; height: auto;">
-                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
-                            <div class="column is-3 box-item" style="text-align: right;">
-                                Titel
-                            </div>
-                            <div class="column is-6">
-                                <div class="box-item">
-                                    <input class="input is-hovered is-normal inputbackground" type="text" style="size:50px; color: black;">
-                                </div>
-                            </div>
-                            <div class="column is-4" style="font-size: 18px;">
-                            </div>
-                        </div>   
-                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
-                            <div class="column is-3 box-item" style="text-align: right;">
-                                Frage
-                            </div>
-                            <div class="column is-6">
-                                <div class="box-item">
-                                    <div class="field">
-                                        <div class="control">
-                                            <textarea class="textarea box-item "id="question"></textarea>
-                                        </div>
-                                    </div>       
-                                </div>
-                            </div>
-                            <div class="column is-4" style="font-size: 18px;">
-                            </div>
-                        </div>            
-                        <div class="columns" style="margin-top: 20px; margin-left:-180px;">
-                            <div class="column is-3 box-item" style="text-align: right; border-color:darkgrey;">
-                                Antwort
-                            </div>
-                            <div class="column is-6">
-                                <div class="box-item">
-                                    <div class="field">
-                                        <div class="control">
-                                            <textarea class="textarea"id="answer"></textarea>
-                                        </div>
-                                    </div>                               
-                                </div>
-                            </div>
-                            <div class="column is-4" style="font-size: 18px;">
-                            </div>
-                        </div>            
-                        <div id="buttonscenter">
-                            <a href="lernen"><button class="button button-yellow white-text bold-text center" id="button-small"  type="submit"> Speichern
-                                </button></a>
-                            <a href="/bearbeiten2"><button class="button button-red white-text bold-text center" id="button-small"  type="submit"> Abbrechen
-                                </button></a>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
+          </div>
 
         </div>
-        <script type="text/javascript">
-            var answer = new SimpleMDE({ element: document.getElementById("answer") });
-            var question = new SimpleMDE({ element: document.getElementById("question") });
-        </script>
-    </body>
-</html>
+      </div>
+    </div>
+    {{end}}
+    <div class="columns2" style="margin-top: 0em; margin-left:16.8em;">
+      <div class="column is-3">
+        {{range $i, $v:= .AllKarten}}
+        <a href="javascript:showCard('{{.titel}}');">
+          <div class="box left" style="margin-left: 6.6em; margin-top: 1em">
+            #{{$i}}
+            <h1><strong>{{.titel}}</strong></h1>
+</a>
+
+            <p class="right"><a href="/bearbeiten2?_id={{.kasten}}"class="button white-text button-green">Bearbeiten</a>
+              <a  href="#popup1"><button class="button button-red" type="submit">
+                <span class="icon">
+                  <figure class="image is-24x24">
+                    <img src="img/Icons/Delete.svg">
+                  </figure>
+                </span> </button></a></p>
+                <div id="popup1" class="overlay">
+                  <div class="popup">
+                    <h2 class="bold-text white-text"style="margin-top: 3px;">Löschen</h2>
+                    <h3 style=" margin-top: 20px;">Bist du dir sicher, dass du deine Karte löschen willst?</h3>
+                    <div style="margin-left:10%; margin-top:10%;">
+                      <a class="close" href="#"><button class="button button-green white-text bold-text" id="button-normal" type="submit">
+                        Karte behalten</button></a>
+                        <a class="close" href="#"><button class="button button-red white-text bold-text" id="button-normal" type="submit">
+                          Karte löschen </button></a>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                    {{end}}
+                  </div>
+                  <div class="column is-8">
+                    {{range .AllKarten}}
+                    <div id="{{.itel}}"class="box showBox" style="margin-top:0em; margin-left: 38em; height: auto; display:none;">
+                      <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+                        <div class="column is-3 " style="text-align: right;">
+                          Titel
+                        </div>
+                        <div class="column is-6">
+                            <input class="input is-hovered is-normal inputbackground" type="text" style="size:50px; color: black;">
+                        </div>
+                        <div class="column is-4" style="font-size: 18px;">
+                        </div>
+                      </div>
+                      <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+                        <div class="column is-3 " style="text-align: right;">
+                          Frage
+                        </div>
+                        <div class="column is-6">
+                            <div class="field">
+                              <div class="control">
+                                <textarea class="textarea "id="question"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="column is-4" style="font-size: 18px;">
+                        </div>
+                      </div>
+                      <div class="columns" style="margin-top: 20px; margin-left:-180px;">
+                        <div class="column is-3 " style="text-align: right; border-color:darkgrey;">
+                          Antwort
+                        </div>
+                        <div class="column is-6">
+                            <div class="field">
+                              <div class="control">
+                                <textarea class="textarea"id="answer"></textarea>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="column is-4" style="font-size: 18px;">
+                        </div>
+                      </div>
+                      <div id="buttonscenter">
+                        <a href="lernen"><button class="button button-yellow white-text bold-text center" id="button-small"  type="submit"> Speichern
+                        </button></a>
+                        <a href="#"><button class="button button-red white-text bold-text center" id="button-small"  type="submit"> Abbrechen
+                        </button></a>
+                      </div>
+                    </div>
+                  </div>
+{{end}}
+
+                </div>
+
+
+              </div>
+              <script type="text/javascript">
+              var answer = new SimpleMDE({ element: document.getElementById("answer") });
+              var question = new SimpleMDE({ element: document.getElementById("question") });
+              </script>
+            </body>
+            </html>

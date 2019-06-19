@@ -69,7 +69,8 @@
                 </div>
             </div>
             <div class="columns2" style="margin-top: -12em; margin-left:16.8em;">
-
+              {{range .AllKarten}}
+              {{if eq .nummer "1"}}
                 <div class="column is-8">
                     <div class="boxbig" style="margin-left:280px;margin-top:170px ; height: auto;">
                         <div class="columns" style="margin-top: 20px; margin-left:-180px;">
@@ -77,15 +78,15 @@
                                 Titel
                             </div>
                             <div class="column is-6 box-item bold-text left">
-                                Titel der Karte
+{{.titel}}
                             </div>
-                        </div>   
+                        </div>
                         <div class="columns" style=" margin-left:-180px;">
                             <div class="column is-3 box-item" style="text-align: right;">
                                 Frage
                             </div>
                             <div class="column is-6 box-item left">
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.    
+{{.frage}}
                             </div>
                         </div>
                         <div class="columns" style="margin-left:-180px;">
@@ -93,18 +94,21 @@
                                 Antwort
                             </div>
                             <div class="column is-6 box-item left">
-                                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+{{.antwort}}
                             </div>
-                        </div>  
+                        </div>
                         <div id="buttonscenter">
-                            <a href="lernen"><button class="button button-green white-text white-text bold-text center" id="button-normal"  type="submit"> Richtig
+                            <a href="/lernen?_id=8bd2ab18b0e19de76af573b5d100c65a"><button class="button button-green white-text white-text bold-text center" id="button-normal"  type="submit"> Richtig
                                 </button></a>
-                            <a href="lernen"><button class="button button-red white-text bold-text"  id="button-normal"type="submit"> Falsch
+                            <a href="/lernen?_id=8bd2ab18b0e19de76af573b5d100c65a"><button class="button button-red white-text bold-text"  id="button-normal"type="submit"> Falsch
                                 </button></a>
                             <br>
                             <br>
                         </div>
                     </div>
+                    {{else}}
+                    {{end}}
+                    {{end}}
                 </div>
             </div>
         </div>

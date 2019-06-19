@@ -177,7 +177,7 @@
         <h1 class="bold-text">{{.oberkategorie}} ▶ {{.unterkategorie}}</h1>
         <div class="columns is-gapless">
           <div class="column is-9" id="hex" style="margin-top: 0em;">
-            <a href="anschauen">
+            <a href="/anschauen?_id={{._id}}">
               <h2><br>{{.titel}}</h2> </a>
             </div>
             <div class="column is-3" style="background-color: white;">
@@ -203,9 +203,9 @@
               </tbody>
             </table>
             <div id="learnbuttons">
-              <br> <a href="lernen"><button class="button button-yellow white-text bold-text" id="button-small"  type="submit"> Lernen
+              <br> <a href="lernen?_id={{._id}}"><button class="button button-yellow white-text bold-text" id="button-small"  type="submit"> Lernen
               </button></a>
-              <a href="bearbeiten2"><button class="button button-green white-text" id="button-small" type="submit"> Bearbeiten
+              <a href="bearbeiten2?_id={{._id}}"><button class="button button-green white-text" id="button-small" type="submit"> Bearbeiten
               </button></a>
               <a  href="#popup1"><button class="button button-red" type="submit">
                 <span class="icon">
@@ -213,7 +213,7 @@
                     <img src="img/Icons/Delete.svg">
                   </figure>
                 </span> </button></a>
-                <div id="popup1" class="overlay">
+                <div id="#popup1" class="overlay">
                   <div class="popup">
                     <h2 class="center bold-text white-text"style="margin-top: 3px;">Löschen</h2>
                     <h3 class="center"style=" margin-top: -20px;">Bist du dir sicher, dass du deine Kartei löschen willst?</h3>
@@ -239,7 +239,7 @@
               </div>
               <div class="columns is-multiline" style="margin-top:2px;margin-left: 27.7em;">
                 {{range .}}
-                {{if eq .ersteller "Frauke Musterfrau"}}
+                {{if ne .ersteller "Max Mustermann"}}
                 <div class="column is-3" id="kasten">
                   <h1 class="bold-text">{{.oberkategorie}} ▶ {{.unterkategorie}}</h1>
                   <div class="columns is-gapless">
@@ -271,9 +271,7 @@
                         </tbody>
                       </table>
                       <div class="center" id="learnbuttons">
-                        <br> <a href="lernen"><button class="button button-yellow white-text bold-text" id="button-small"  type="submit"> Lernen
-                        </button></a>
-                        <a href="bearbeiten2"><button class="button button-green white-text" id="button-small" type="submit"> Bearbeiten
+                        <br> <a href="/lernen\_id={{._id}}"><button class="button button-yellow white-text bold-text" id="button-small"  type="submit"> Lernen
                         </button></a>
                         <a  href="#popup1"><button class="button button-red" type="submit">
                           <span class="icon">
