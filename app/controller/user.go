@@ -28,10 +28,20 @@ func Register(w http.ResponseWriter, r *http.Request) {
 func AddUser(w http.ResponseWriter, r *http.Request) {
 	username := r.FormValue("username")
 	password := r.FormValue("password")
+	mail:= r.FormValue("mail")
+	//passwordCheck := r.FormValue("passwordCheck")
+
+
 
 	user := model.User{}
 	user.Username = username
-	user.Password = password
+  user.Mail =mail
+user.Password = password
+//if password == passwordCheck{
+	//user.Password = password
+//}else{
+	//ErrorMsg: "Passwort nicht identisch"
+//}
 
 	err := user.Add()
 	if err != nil {
@@ -40,9 +50,9 @@ func AddUser(w http.ResponseWriter, r *http.Request) {
 		}{
 			ErrorMsg: "Username already exists!",
 		}
-		tmpl.ExecuteTemplate(w, "index.tmpl", data)
+		tmpl.ExecuteTemplate(w, "registrieren.tmpl", data)
 	} else {
-		tmpl.ExecuteTemplate(w, "index.tmpl", nil)
+		tmpl.ExecuteTemplate(w, "home.tmpl", nil)
 	}
 }
 
@@ -62,7 +72,6 @@ func AuthenticateUser(w http.ResponseWriter, r *http.Request) {
 	}
 	username := r.FormValue("username")
 	password := r.FormValue("password")
-
 	// Authentication
 	user, err = model.GetUserByUsername(username)
 	if err == nil {

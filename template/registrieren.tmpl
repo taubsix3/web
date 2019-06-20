@@ -66,7 +66,7 @@
                         </div>
                         <div class="column">
                             <div class="box-item">
-                                <input class="input is-hovered is-normal inputbackground" id="is-black" type="password" style="size:50px;">
+                                <input class="input is-hovered is-normal inputbackground" id="is-black" name="passwordCheck" type="password" style="size:50px;">
                             </div>
                         </div>
                         <div class="column arrow_box white-text left" style="font-size: 14px;">
@@ -107,5 +107,17 @@
                 </div>
             </div>
         </div>
+        <!-- Optional JavaScript -->
+        	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        	<script src="/js/jquery-3.3.1.slim.min.js"></script>
+        	<script src="/js/popper.min.js"></script>
+        	<script src="/js/bootstrap.min.js"></script>
+        	{{if .ErrorMsg}}
+        	<script src="/js/alertify.min.js"></script>
+        	<script>
+        		// error message appears for 3 seconds
+        		alertify.error('{{.ErrorMsg}}', 3);
+        	</script>
+        	{{end}}
     </body>
 </html>

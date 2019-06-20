@@ -7,11 +7,12 @@ import (
 
 func main() {
 	http.HandleFunc("/", controller.Index)
-	http.HandleFunc("/registrieren", controller.Registrieren)
+	http.HandleFunc("/registrieren", controller.Register)
 	http.HandleFunc("/anschauen", controller.Anschauen)
 	http.HandleFunc("/bearbeiten", controller.Bearbeiten)
 	http.HandleFunc("/bearbeiten2", controller.Bearbeiten2)
 	http.HandleFunc("/index", controller.Index)
+	http.HandleFunc("/home", controller.Home)
 	http.HandleFunc("/karteikasten", controller.Karteikasten)
 	http.HandleFunc("/lernen", controller.Lernen)
 	http.HandleFunc("/lernen2", controller.Lernen2)
@@ -20,6 +21,7 @@ func main() {
 
 	http.HandleFunc("/register", controller.Register)
 http.HandleFunc("/add-user", controller.AddUser)
+
 http.HandleFunc("/login", controller.Login)
 http.HandleFunc("/authenticate-user", controller.AuthenticateUser)
 http.HandleFunc("/logout", controller.Logout)

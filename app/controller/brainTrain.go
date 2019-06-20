@@ -35,6 +35,11 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		tmpl.ExecuteTemplate(w, "index.tmpl", data)
 	}
 
+	func Home(w http.ResponseWriter, r *http.Request) {
+
+			tmpl.ExecuteTemplate(w, "home.tmpl", nil)
+		}
+
 // Bearbeiten controller
 func Bearbeiten(w http.ResponseWriter, r *http.Request) {
 	_id := r.FormValue("_id")
