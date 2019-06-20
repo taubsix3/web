@@ -5,9 +5,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-"time"
+
 	"golang.org/x/crypto/bcrypt"
 )
+
 
 
 // Add User
@@ -17,12 +18,13 @@ func (user User) Add() (err error) {
 	if err == nil && userInDB.Username == user.Username {
 		return errors.New("username exists already")
 	}
+
 	// Hash password
 	hashedPwd, err := bcrypt.GenerateFromPassword([]byte(user.Password), 14)
 	b64HashedPwd := base64.StdEncoding.EncodeToString(hashedPwd)
+
 	user.Password = b64HashedPwd
 	user.Type = "user"
-  user.Created= time.Now()
 
 	// Convert Todo struct to map[string]interface as required by Save() method
 	u, err := user2Mapp(user)
@@ -50,7 +52,7 @@ func GetUserByUsername(username string) (user User, err error) {
 	query := `
 	{
 		"selector": {
-			 "type": "User",
+			 "type": "user",
 			 "username": "%s"
 		}
 	}`

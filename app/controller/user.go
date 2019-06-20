@@ -28,13 +28,10 @@ func Register(w http.ResponseWriter, r *http.Request) {
 func AddUser(w http.ResponseWriter, r *http.Request) {
 	username := r.FormValue("username")
 	password := r.FormValue("password")
-	mail := r.FormValue("mail")
-
 
 	user := model.User{}
 	user.Username = username
 	user.Password = password
-	user.Mail= mail
 
 	err := user.Add()
 	if err != nil {
@@ -68,7 +65,6 @@ func AuthenticateUser(w http.ResponseWriter, r *http.Request) {
 
 	// Authentication
 	user, err = model.GetUserByUsername(username)
-
 	if err == nil {
 		// decode base64 String to []byte
 		passwordDB, _ := base64.StdEncoding.DecodeString(user.Password)
@@ -107,7 +103,7 @@ func Auth(h http.HandlerFunc) http.HandlerFunc {
 
 		// Check if user is authenticated
 		if auth, ok := session.Values["authenticated"].(bool); !ok || !auth {
-			http.Redirect(w, r, "/", http.StatusFound)
+			http.Redirect(w, r, "/index", http.StatusFound)
 		} else {
 			h(w, r)
 		}
